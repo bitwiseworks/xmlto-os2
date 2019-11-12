@@ -9,3 +9,4 @@ configure
 missing
 test-driver
 ylwrap
+xmlif/xmlif.c
