@@ -37,6 +37,9 @@
  */
 #include <string.h>
 #include <stdlib.h>
+#ifdef __OS2__
+#include <fcntl.h>
+#endif
 
 #define TRUE	1
 #define FALSE	0
@@ -264,7 +267,9 @@ main(int argc, char *argv[])
 	    fprintf(stderr, "xmlif: malformed argument %d\n", i);
 	    exit(1);
 	}
-
+#ifdef __OS2__
+    setmode(fileno(stdout), O_BINARY);
+#endif
     yylex();
 }
 
